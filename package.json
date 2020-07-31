@@ -1,6 +1,6 @@
 {
   "name": "@sschottler/mobile-components",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "themed components",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
