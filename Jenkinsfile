@@ -73,17 +73,19 @@ pipeline {
       }
 
       steps {
-        withNPM(npmrcConfig: 'personal-npmrc') {
-          script {
-            try {
-              sh '''
-              npm whoami
-              npm run release
-              '''
-            } catch (exc) {
-              sh '''
-              echo "script catch block hit"
-              '''
+        withCredentials([string(credentialsId: 'release-it-github-token', variable: 'GITHUB_TOKEN')]){
+          withNPM(npmrcConfig: 'personal-npmrc') {
+            script {
+              try {
+                sh '''
+                npm whoami
+                npm run release
+                '''
+              } catch (exc) {
+                sh '''
+                echo "script catch block hit"
+                '''
+              }
             }
           }
         }
