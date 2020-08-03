@@ -78,7 +78,7 @@ pipeline {
             try {
               sh '''
               npm whoami
-              yarn release
+              npm run release
               '''
             } catch (exc) {
               sh '''
