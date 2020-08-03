@@ -74,7 +74,7 @@ pipeline {
 
       steps {
         withCredentials([string(credentialsId: 'release-it-github-token', variable: 'GITHUB_TOKEN')]){
-          withNPM(npmrcConfig: 'personal-npmrc') {
+         // withNPM(npmrcConfig: 'personal-npmrc') {
             script {
               try {
                 sh '''
@@ -87,7 +87,7 @@ pipeline {
                 '''
               }
             }
-          }
+          //}
         }
       }
     }
