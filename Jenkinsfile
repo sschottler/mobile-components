@@ -5,7 +5,7 @@ pipeline {
       steps {
         withCredentials([usernameColonPassword(credentialsId: 'npm', variable: 'NPM_CREDENTIALS')]) {
           sh '''
-            echo $NPM_CREDENTIALS'
+            echo $NPM_CREDENTIALS
           '''
         }
       }
