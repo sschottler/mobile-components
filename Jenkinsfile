@@ -78,7 +78,7 @@ pipeline {
             try {
               sh '''
               npm whoami
-              echo $GITHUB_TOKEN
+              echo "$GITHUB_TOKEN"
               npm run release
               '''
             } catch (exc) {
