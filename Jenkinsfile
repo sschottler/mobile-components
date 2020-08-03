@@ -73,15 +73,18 @@ pipeline {
       }
 
       steps {
-        script {
-          try {
-            sh '''
-            yarn release
-            '''
-          } catch (exc) {
-            sh '''
-            echo "script catch block hit"
-            '''
+        withNPM(npmrcConfig: 'personal-npmrc') {
+          script {
+            try {
+              sh '''
+              npm whoami
+              yarn release
+              '''
+            } catch (exc) {
+              sh '''
+              echo "script catch block hit"
+              '''
+            }
           }
         }
       }
