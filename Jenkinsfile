@@ -3,10 +3,10 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'npm', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        // withCredentials([usernamePassword(credentialsId: 'npm', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        withNPM(npmrcConfig: 'personal-npmrc') {
           sh '''
-            echo "$USERNAME"
-            echo "$PASSWORD"
+            npm whoami
           '''
         }
       }
