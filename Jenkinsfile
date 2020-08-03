@@ -1,13 +1,19 @@
 pipeline {
-  agent { docker { image 'node:6.3' }}
+  agent { 
+    // docker { image 'node:6.3' }}
+    docker {
+      image 'docker.werally.in/reactnativecommunity/react-native-android'
+      args '-u root:root'
+      label 'ec2-8cpu'
+    }
+  }
   stages {
     stage('build') {
       steps {
-        // withCredentials([usernamePassword(credentialsId: 'npm', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
         withNPM(npmrcConfig: 'personal-npmrc') {
           sh '''
             npm whoami
-            npm run release
+            yarn -v
           '''
         }
       }
