@@ -7,7 +7,7 @@ pipeline {
         withNPM(npmrcConfig: 'personal-npmrc') {
           sh '''
             npm whoami
-            npm release
+            npm run release
           '''
         }
       }
