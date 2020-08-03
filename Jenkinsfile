@@ -1,3 +1,7 @@
+def defaultParamsValues() {
+
+}
+
 pipeline {
   agent { 
     // docker { image 'node:6.3' }}
@@ -51,15 +55,15 @@ pipeline {
       }
     }
 
-    stage('LINT / BUILD / TEST') {
-      steps {
-        sh '''
-        yarn lint
-        yarn prepare
-        yarn test
-        '''
-      }
-    }
+    // stage('LINT / BUILD / TEST') {
+    //   steps {
+    //     sh '''
+    //     yarn lint
+    //     yarn prepare
+    //     yarn test
+    //     '''
+    //   }
+    // }
 
     stage('PUBLISH TO NPM') {
       when {
