@@ -5,8 +5,8 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'npm', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh '''
-            echo $USERNAME
-            echo $PASSWORD
+            echo "$USERNAME"
+            echo "$PASSWORD"
           '''
         }
       }
