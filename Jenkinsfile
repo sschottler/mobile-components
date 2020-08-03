@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'npm whoami'
+        withCredentials([string(credentialsId: 'npm', variable: 'NPM_CREDENTIALS')]) {
+          sh 'echo $NPM_CREDENTIALS'
+        }
       }
     }
   }
