@@ -3,8 +3,10 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        withCredentials([string(credentialsId: 'npm', variable: 'NPM_CREDENTIALS')]) {
-          sh 'echo $NPM_CREDENTIALS'
+        withCredentials([usernameColonPassword(credentialsId: 'npm', variable: 'NPM_CREDENTIALS')]) {
+          sh '''
+            echo $NPM_CREDENTIALS'
+          '''
         }
       }
     }
