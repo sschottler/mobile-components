@@ -42,6 +42,13 @@ pipeline {
       need to release from a specific branch)
       '''
     )
+    booleanParam(
+      name: 'testBranchParameter',
+      defaultValue: false,
+      description: ''',
+      This is a test
+      '''
+    )
   }
   stages {
     stage('INSTALL DEPENDENCIES') {
@@ -64,6 +71,21 @@ pipeline {
     //     '''
     //   }
     // }
+
+    stage('Demo Branch Parameter') {
+      when {
+        expression { 
+          testBranchParameter == 'true'
+        }
+      }
+
+      steps {
+        sh '''
+        echo "pipeline change"
+        npm whoami
+        '''
+      }
+    }
 
     // stage('PUBLISH TO NPM') {
     //   when {
