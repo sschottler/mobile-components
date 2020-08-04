@@ -65,30 +65,29 @@ pipeline {
     //   }
     // }
 
-    stage('PUBLISH TO NPM') {
-      when {
-        expression { 
-          forceRelease == 'true'
-        }
-      }
+    // stage('PUBLISH TO NPM') {
+    //   when {
+    //     expression { 
+    //       forceRelease == 'true'
+    //     }
+    //   }
 
-      steps {
-        withCredentials([string(credentialsId: 'release-it-github-token', variable: 'GITHUB_TOKEN')]){
-          script {
-            try {
-              sh '''
-              npm whoami
-              echo "$GITHUB_TOKEN"
-              npm run release
-              '''
-            } catch (exc) {
-              sh '''
-              echo "script catch block hit"
-              '''
-            }
-          }
-        }
-      }
+    //   steps {
+    //     withCredentials([string(credentialsId: 'release-it-github-token', variable: 'GITHUB_TOKEN')]){
+    //       script {
+    //         try {
+    //           sh '''
+    //           npm whoami
+    //           npm run release
+    //           '''
+    //         } catch (exc) {
+    //           sh '''
+    //           echo "script catch block hit"
+    //           '''
+    //         }
+    //       }
+    //     }
+    //   }
     }
   }
 }
