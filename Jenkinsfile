@@ -1,8 +1,12 @@
 def defaultParamsValues() {
-  sh '''
-    echo "==> PRINTING JENKINS VARIABLES"
-    echo "testBranchParameter: ${params.testBranchParameter}"
-  '''
+  // sh '''
+  //   echo "==> PRINTING JENKINS VARIABLES"
+  //   echo "testBranchParameter: ${params.testBranchParameter}"
+  // '''
+  sh "
+    echo \"===> PRINTING JENKINS VARIABLES\"
+    echo \"testBranchParameter: ${params.testBranchParameter}\"
+  "
 }
 
 pipeline {
