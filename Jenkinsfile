@@ -46,7 +46,7 @@ pipeline {
       name: 'testBranchParameter',
       defaultValue: false,
       description: '''
-      why does this not default?
+      is there caching with this somewhere?
       '''
     )
   }
