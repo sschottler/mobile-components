@@ -75,7 +75,7 @@ pipeline {
     stage('Demo Branch Parameter') {
       when {
         expression { 
-          params.testBranchParameter == true
+          testBranchParameter == true
         }
       }
 
