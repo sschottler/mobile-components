@@ -81,7 +81,7 @@ pipeline {
 
       steps {
         sh '''
-        echo "pipeline change"
+        echo "test params"
         npm whoami
         '''
       }
