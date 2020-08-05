@@ -1,5 +1,8 @@
 def defaultParamsValues() {
-
+  sh '''
+    echo "==> PRINTING JENKINS VARIABLES"
+    echo "testBranchParameter: ${params.testBranchParameter}"
+  '''
 }
 
 pipeline {
@@ -51,13 +54,22 @@ pipeline {
     )
   }
   stages {
+    stage('PRINT VARIABLES') {
+      steps {
+          script {
+            defaultParamsValues()
+          }
+      }
+    }
+
     stage('INSTALL DEPENDENCIES') {
       steps {
-        withNPM(npmrcConfig: 'personal-npmrc') {
+        withNPM(npmrcConfig: 'personal-npmrc') {          
           echo "testBranchParameter: ${params.testBranchParameter}"
           sh '''
             npm whoami
           '''
+
         }
       }
     }
