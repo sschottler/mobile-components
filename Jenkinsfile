@@ -56,6 +56,8 @@ pipeline {
         withNPM(npmrcConfig: 'personal-npmrc') {
           sh '''
             npm whoami
+
+            echo "testBranchParameter: ${params.testBranchParameter}"
             yarn install
           '''
         }
