@@ -54,11 +54,9 @@ pipeline {
     stage('INSTALL DEPENDENCIES') {
       steps {
         withNPM(npmrcConfig: 'personal-npmrc') {
+          echo "testBranchParameter: ${params.testBranchParameter}"
           sh '''
             npm whoami
-
-            echo "testBranchParameter: ${params.testBranchParameter}"
-            yarn install
           '''
         }
       }
