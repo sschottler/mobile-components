@@ -44,7 +44,7 @@ pipeline {
     )
     booleanParam(
       name: 'testBranchParameter',
-      defaultValue: false,
+      defaultValue: true,
       description: '''
       This is a test
       '''
