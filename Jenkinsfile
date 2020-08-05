@@ -3,10 +3,13 @@ def defaultParamsValues() {
   //   echo "==> PRINTING JENKINS VARIABLES"
   //   echo "testBranchParameter: ${params.testBranchParameter}"
   // '''
-  sh "
-    echo \"===> PRINTING JENKINS VARIABLES\" \
-    echo \"testBranchParameter: ${params.testBranchParameter}\" \
-  "
+  // sh "
+  //   echo \"===> PRINTING JENKINS VARIABLES\" \
+  //   echo \"testBranchParameter: ${params.testBranchParameter}\" \
+  // "
+  echo "==> PRINTING JENKINS VARIABLES"
+  echo "testBrachParameter: ${params.testBranchParameter}"
+  echo "==> END JENKINS VARIABLES"
 }
 
 pipeline {
