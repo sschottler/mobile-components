@@ -4,8 +4,8 @@ def defaultParamsValues() {
   //   echo "testBranchParameter: ${params.testBranchParameter}"
   // '''
   sh "
-    echo \"===> PRINTING JENKINS VARIABLES\"
-    echo \"testBranchParameter: ${params.testBranchParameter}\"
+    echo \"===> PRINTING JENKINS VARIABLES\" \
+    echo \"testBranchParameter: ${params.testBranchParameter}\" \
   "
 }
 
