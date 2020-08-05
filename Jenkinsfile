@@ -46,7 +46,7 @@ pipeline {
       name: 'testBranchParameter',
       defaultValue: true,
       description: '''
-      This is a test
+      why does this not default?
       '''
     )
   }
